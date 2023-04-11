@@ -1,0 +1,28 @@
+{
+  "root": "apps/regression-repro-e2e",
+  "sourceRoot": "apps/regression-repro-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/regression-repro-e2e/cypress.json",
+        "devServerTarget": "regression-repro:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "regression-repro:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/regression-repro-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["regression-repro"]
+}
