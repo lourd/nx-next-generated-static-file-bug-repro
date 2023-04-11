@@ -1,5 +1,6 @@
 {
-  "root": "apps/regression-repro",
+  "name": "regression-repro",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/regression-repro",
   "projectType": "application",
   "targets": {
@@ -12,7 +13,10 @@
         "outputPath": "dist/apps/regression-repro"
       },
       "configurations": {
-        "production": {}
+        "production": {},
+        "development": {
+          "outputPath": "apps/regression-repro"
+        }
       }
     },
     "serve": {
@@ -25,8 +29,13 @@
         "production": {
           "buildTarget": "regression-repro:build:production",
           "dev": false
+        },
+        "development": {
+          "buildTarget": "regression-repro:build:development",
+          "dev": true
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "export": {
       "executor": "@nrwl/next:export",
@@ -36,9 +45,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/regression-repro"],
+      "outputs": ["{workspaceRoot}/coverage/apps/regression-repro"],
       "options": {
-        "jestConfig": "apps/regression-repro/jest.config.js",
+        "jestConfig": "apps/regression-repro/jest.config.ts",
         "passWithNoTests": true
       }
     },

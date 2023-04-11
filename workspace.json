@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "regression-repro": "apps/regression-repro",
-    "regression-repro-e2e": "apps/regression-repro-e2e"
-  }
-}

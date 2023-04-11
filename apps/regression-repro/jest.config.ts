@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'regression-repro',
   preset: '../../jest.preset.js',
   transform: {

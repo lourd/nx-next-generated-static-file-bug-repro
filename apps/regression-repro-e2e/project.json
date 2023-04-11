@@ -1,18 +1,15 @@
 {
-  "root": "apps/regression-repro-e2e",
+  "name": "regression-repro-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/regression-repro-e2e/src",
   "projectType": "application",
   "targets": {
-    "e2e": {
-      "executor": "@nrwl/cypress:cypress",
+    "test": {
+      "executor": "@ns3/nx-jest-playwright:jest-playwright",
       "options": {
-        "cypressConfig": "apps/regression-repro-e2e/cypress.json",
-        "devServerTarget": "regression-repro:serve"
-      },
-      "configurations": {
-        "production": {
-          "devServerTarget": "regression-repro:serve:production"
-        }
+        "devServerTarget": "regression-repro:serve:production",
+        "jestConfig": "apps/regression-repro-e2e/jest.config.ts",
+        "passWithNoTests": true
       }
     },
     "lint": {
